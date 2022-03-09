@@ -6,7 +6,7 @@ resource "aws_instance" "web" {
   key_name               = var.key_name
   vpc_security_group_ids = [aws_security_group.webserver_security_group.id]
   user_data              = local.webserver-instance-userdata
-  iam_instance_profile = module.bucket.instance_profile.name
+  iam_instance_profile = module.s3.instance_profile.name
 
   root_block_device {
     volume_size           = var.disk_size
