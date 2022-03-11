@@ -18,12 +18,6 @@ variable "instance_type" {
   default     = "t3.micro"
 }
 
-#variable "key_name" {
-#  default     = "whiskey"
-#  description = "The key name of the Key Pair to use for the instance"
-#  type        = string
-#}
-
 variable "vpc_cidr_block" {
   default = "10.0.0.0/16"
 }
