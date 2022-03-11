@@ -1,9 +1,3 @@
-data "aws_ami" "latest-whisky" {
-most_recent = true
-owners = ["self"]
-name_regex = "nginx-whisky"
-}
-
 data "aws_ami" "latest-ubuntu" {
 most_recent = true
 owners = ["099720109477"] # Canonical
