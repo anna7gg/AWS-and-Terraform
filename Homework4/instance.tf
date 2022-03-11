@@ -3,7 +3,8 @@ resource "aws_instance" "web" {
   ami                    = data.aws_ami.latest-ubuntu.id
   instance_type          = var.instance_type
   subnet_id              = module.vpc.public_subnets_id[count.index]
-  key_name               = var.key_name
+  key_name               = aws_key_pair.whisky_key.key_name
+
   vpc_security_group_ids = [aws_security_group.webserver_security_group.id]
   user_data              = local.webserver-instance-userdata
   iam_instance_profile = module.s3.instance_profile.name
