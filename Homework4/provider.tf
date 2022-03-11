@@ -10,7 +10,7 @@ terraform {
     hostname     = "app.terraform.io"
     organization = "Anna-ops"
     workspaces {
-      name = "AWS-and-Terraform"
+      name = "network"
     }
   }
   required_version = ">= 0.14.9"
