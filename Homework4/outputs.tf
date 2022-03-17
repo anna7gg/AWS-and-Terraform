@@ -14,18 +14,18 @@ output "region" {
   value = var.region
 }
 
-#output "vpc_id" {
-#  value = data.tfe_outputs.vpc.vpc_id
-#}
-#
-#output "public_subnets_id" {
-#  value = data.tfe_outputs.vpc.public_subnets_id
-#}
-#
-#output "private_subnets_id" {
-#  value = data.tfe_outputs.vpc.private_subnets_id
-#}
-#
-#output "vpc_cidr" {
-#  value = data.tfe_outputs.vpc.vpc_cidr
-#}
+output "vpc_id" {
+  value = data.terraform_remote_state.vpc.outputs.vpc_id
+}
+
+output "public_subnets_id" {
+  value = data.terraform_remote_state.vpc.outputs.public_subnets_id
+}
+
+output "private_subnets_id" {
+  value = data.terraform_remote_state.vpc.outputs.private_subnets_id
+}
+
+output "vpc_cidr" {
+  value = data.terraform_remote_state.vpc.outputs.vpc_cidr
+}
