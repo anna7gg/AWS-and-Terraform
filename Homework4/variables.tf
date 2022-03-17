@@ -56,3 +56,7 @@ variable "canned_acl" {
   default = "private"
 
 }
+variable "env" {
+  description = "environment"
+  default = "server"
+}
