@@ -23,7 +23,7 @@ data "terraform_remote_state" "vpc" {
   config = {
     organization = "Anna-ops"
     workspaces    = {
-      name= "server"
+      name= "servers"
     }
   }
 }
