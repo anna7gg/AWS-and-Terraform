@@ -18,7 +18,12 @@ data "aws_availability_zones" "available" {
 }
 data "aws_caller_identity" "current" {}
 
-data "tfe_outputs" "vpc" {
-  organization = "Anna-ops"
-  workspace  = "network"
+data "terraform_remote_state" "vpc" {
+  backend = "remote"
+  config {
+    organization = "Anna-ops"
+    workspaces    = {
+      name="network"
+    }
+  }
 }
