@@ -20,5 +20,5 @@ data "aws_caller_identity" "current" {}
 
 data "tfe_outputs" "vpc" {
   organization = "Anna-ops"
-  workspaces  = "network"
+  workspace  = "network"
 }
