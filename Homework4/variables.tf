@@ -60,3 +60,19 @@ variable "env" {
   description = "environment"
   default = "server"
 }
+
+variable "vpc_id" {
+  default = data.tfe_outputs.vpc.vpc_id
+}
+
+variable "vpc_cidr" {
+  default = data.tfe_outputs.vpc.vpc_cidr
+}
+
+variable "private_subnets_id" {
+  default = data.tfe_outputs.vpc.private_subnets_id
+}
+
+variable "public_subnets_id" {
+  default = data.tfe_outputs.vpc.public_subnets_id
+}
