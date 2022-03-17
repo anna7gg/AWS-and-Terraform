@@ -16,3 +16,4 @@ owners = ["099720109477"] # Canonical
 data "aws_availability_zones" "available" {
   state = "available"
 }
+data "aws_caller_identity" "current" {}
