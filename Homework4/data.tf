@@ -20,7 +20,7 @@ data "aws_caller_identity" "current" {}
 
 data "terraform_remote_state" "vpc" {
   backend = "remote"
-  config {
+  config = {
     organization = "Anna-ops"
     workspaces    = {
       name="network"
