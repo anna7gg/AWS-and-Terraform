@@ -19,9 +19,9 @@ terraform {
 provider "aws" {
   profile = "admin_terra"
   region  = var.region
-  default_tags {
-    Name = "ops-app-${var.env}"
-    environment = var.env
-    owner = "Anna-g"
-  }
+#  default_tags {
+#    Name = "ops-app-${var.env}"
+#    environment = var.env
+#    owner = "Anna-g"
+#  }
 }
