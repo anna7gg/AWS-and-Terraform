@@ -2,7 +2,7 @@ resource "aws_instance" "web" {
   count = var.web_instances_count
   ami                    = data.aws_ami.latest-ubuntu.id
   instance_type          = var.instance_type
-  subnet_id              = data.tfe_outputs.vpc.public_subnets_id[count.index]
+  subnet_id              = data.tfe_outputs.vpc.values.public_subnets_id[count.index]
   key_name               = var.key_name
   vpc_security_group_ids = [aws_security_group.webserver_security_group.id]
   user_data              = local.webserver-instance-userdata
@@ -36,9 +36,9 @@ resource "aws_ebs_volume" "non_root" {
 
 resource "aws_security_group" "webserver_security_group" {
       name = "webserver_security_group"
-      vpc_id = data.tfe_outputs.vpc.vpc_id
+      vpc_id = data.tfe_outputs.vpc.values.vpc_id
       tags = {
-          Name = "webserver_security_group ${data.tfe_outputs.vpc.vpc_id}"
+          Name = "webserver_security_group ${data.tfe_outputs.vpc.values.vpc_id}"
       }
 }
 

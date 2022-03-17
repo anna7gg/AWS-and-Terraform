@@ -1,15 +1,15 @@
 resource "aws_alb" "web-alb" {
-  name = "app-alb-${data.tfe_outputs.vpc.vpc_id}"
+  name = "app-alb-${data.tfe_outputs.vpc.values.vpc_id}"
   load_balancer_type = "application"
   dynamic "subnet_mapping" {
-    for_each = data.tfe_outputs.vpc.public_subnets_id
+    for_each = data.tfe_outputs.vpc.values.public_subnets_id
     content {
       subnet_id = subnet_mapping.value
     }
   }
   security_groups = [aws_security_group.webserver_security_group.id]
   tags = {
-    Name = "app_alb ${data.tfe_outputs.vpc.vpc_id}"
+    Name = "app_alb ${data.tfe_outputs.vpc.values.vpc_id}"
   }
 }
 
@@ -17,14 +17,14 @@ resource "aws_alb_target_group" "web-group" {
   name = "alb-target-group"
   port = 80
   protocol = "HTTP"
-  vpc_id = data.tfe_outputs.vpc.vpc_id
+  vpc_id = data.tfe_outputs.vpc.values.vpc_id
   target_type = "instance"
   health_check {
    enabled = true
     path = "/"
   }
     tags = {
-    "Name" = "web-target-group-${module.vpc.vpc_id}"
+    "Name" = "web-target-group-${data.tfe_outputs.vpc.values.vpc_id}"
   }
   stickiness {
     type = "lb_cookie"
