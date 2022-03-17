@@ -22,10 +22,6 @@ output "public_subnets_id" {
   value = data.terraform_remote_state.vpc.outputs.public_subnets_id
 }
 
-output "private_subnets_id" {
-  value = data.terraform_remote_state.vpc.outputs.private_subnets_id
-}
-
 output "vpc_cidr" {
   value = data.terraform_remote_state.vpc.outputs.vpc_cidr
 }
